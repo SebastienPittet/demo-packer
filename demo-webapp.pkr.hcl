@@ -47,7 +47,7 @@ variable "instance_disk_size" {
 variable "image_name" {
   type = string
   description = "Template name"
-  default = "webapp-packer-{{isotime `2006-01-02`}}"
+  default = "demo-webapp"
 }
 
 variable "image_username" {
@@ -65,7 +65,7 @@ source "exoscale" "webapp" {
   instance_template = "Linux Debian 11 (Bullseye) 64-bit"
   instance_type = "micro"
   instance_security_groups = ["default"]
-  template_description = "Demo Webapp"
+  template_description = "Packer generated on {{isotime `2006-01-02`}}"
   template_name = var.image_name
   template_username = var.image_username
   ssh_username = var.image_username
